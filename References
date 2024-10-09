@@ -1,0 +1,78 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def generate_brain_frequency(freqs, t):
+    signal = np.sum([np.sin(2 * np.pi * f * t) for f in freqs], axis=0)
+    return signal
+
+sampling_rate = 1000
+T = 1.0 / sampling_rate
+t = np.linspace(0.0, 1.0, sampling_rate, endpoint=False)
+
+brain_frequencies = [8, 13, 30]
+wealth_signal = generate_brain_frequency(brain_frequencies, t)
+
+def transmit_signal(signal, phase_shift):
+    transmitted_signal = np.sin(2 * np.pi * signal + phase_shift)
+    return transmitted_signal
+
+phase_shift = np.pi / 4
+
+transmitted_wealth_signal = transmit_signal(wealth_signal, phase_shift)
+
+plt.figure(figsize=(12, 6))
+
+plt.plot(t, wealth_signal, label='Original Brain Frequency Wealth Signal', color='blue', alpha=0.6)
+
+plt.plot(t, transmitted_wealth_signal, label='Transmitted Wealth Signal (Wave Pattern)', color='green', alpha=0.8)
+
+plt.title('Brain Frequency Wealth Signal Transmission')
+plt.xlabel('Time [s]')
+plt.legend()
+plt.grid(True)
+plt..show()
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def generate_brain_frequency(freqs, t):
+  signal = np.sum([np.sin(2 * np.pi * f * t) for f in freqs], axis=0)
+  return signal
+
+sampling_rate = 1000
+T = 1.0 / sampling_rate
+t = np.linspace(0.0, 1.0, sampling_rate, endpoint=False)
+
+brain_frequencies = [8, 13, 30]
+wealth_signal = generate_brain_frequency(brain_frequencies, t)
+
+def transmit_signal(signal, phase_shift):
+  transmitted_signal = np.sin(2 * np.pi * signal + phase_shift)
+  return transmitted_signal
+
+phase_shift = np.pi / 4
+
+transmitted_wealth_signal = transmit_signal(wealth_signal, phase_shift)
+
+def store_signal(signal, storage_factor):
+  stored_signal = storage_factor * np.sin(2 * np.pi * signal)
+  return stored_signal
+
+storage_factor = 0.8
+stored_wealth_signal = store_signal(transmitted_wealth_signal, storage_factor)
+
+plt.figure(figsize=(12, 6))
+
+plt.plot(t, wealth_signal, label='Original Brain Frequency Wealth Signal', color='blue', alpha=0.6
+
+plt.plot(t, transmitted_wealth_signal, label='Transmitted Wealth Signal (Wave Pattern)', color='green', alpha=0.8)
+
+plt.plot(t, stored_wealth_signal, label='Stored Wealth Signal', color='red', alpha=0.6)
+
+plt.title('WealthAnchor')
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
+plt.legend()
+plt.grid(True)
+plt.show()
+
